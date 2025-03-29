@@ -10,9 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 # Устанавливаем Python-библиотеки
 RUN pip3 install --no-cache-dir \
-    RPi.GPIO \
-    rospy \
-    std_msgs
+    RPi.GPIO 
 
 # Устанавливаем ROS Noetic (если не установлен в базовом образе)
 RUN apt-get install -y ros-noetic-ros-base

@@ -27,7 +27,7 @@ services:
       - OPENBLAS_NUM_THREADS=1
       - LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
       - ROS_MASTER_URI=http://localhost:11311  
-      - ROS_HOSTNAME=192.168.1.108.local
+      - ROS_HOSTNAME=192.168.0.108.local
     volumes:
       - /sys/class/gpio:/sys/class/gpio
       - /opt/vc:/opt/vc

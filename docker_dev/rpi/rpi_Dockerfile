@@ -12,8 +12,3 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install --no-cache-dir \
     RPi.GPIO 
 
-# Устанавливаем ROS Noetic (если не установлен в базовом образе)
-RUN apt-get install -y ros-noetic-ros-base
-
-# Устанавливаем ROS-депенденции
-RUN rosdep update && rosdep install --from-paths /opt/ros/noetic/share --ignore-src -y

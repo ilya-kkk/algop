@@ -33,6 +33,6 @@ services:
       - /opt/vc:/opt/vc
       - /dev:/dev
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - /home/rpi/rosrpi/workspace:/workspace
+      - /home/rpi/algop/workspace:/workspace
     entrypoint: ["/bin/bash", "-c", "/workspace/CONTAINER_START.bash"]
 

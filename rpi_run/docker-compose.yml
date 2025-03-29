@@ -1,6 +1,6 @@
 services:
   ros_rpi:
-    image: ilya9kkk/ros_arm:ros_yolo
+    image: ilya9kkk/ros_arm:gpio
     container_name: ros_rpi
     platform: linux/arm64
     privileged: true
@@ -15,8 +15,9 @@ services:
     shm_size: '4g'
     devices:
       - "/dev:/dev"
+      - "/dev/gpiomem:/dev/gpiomem"
     group_add:
-      - ${VIDEO_GID}
+      - 44
     environment:
       - DISPLAY
       - QT_X11_NO_MITSHM=1
@@ -25,10 +26,13 @@ services:
       - OMP_NUM_THREADS=1
       - OPENBLAS_NUM_THREADS=1
       - LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
+      - ROS_MASTER_URI=http://localhost:11311  
+      - ROS_HOSTNAME=192.168.1.108.local
     volumes:
+      - /sys/class/gpio:/sys/class/gpio
       - /opt/vc:/opt/vc
       - /dev:/dev
       - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
-      - ${ROOT_DIR}/workspace:/workspace
+      - /home/rpi/rosrpi/workspace:/workspace
     entrypoint: ["/bin/bash", "-c", "/workspace/CONTAINER_START.bash"]
 

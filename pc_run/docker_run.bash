@@ -20,7 +20,7 @@ docker run -ti --rm \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -e XAUTHORITY \
     -v /dev:/dev \
-    -v "$ROOT_DIR/workspace:/workspace" \
+    -v "/home/user/Рабочий стол/algop/workspace:/workspace" \
     --net=host \
     --privileged \
     --name ros_pc ilya9kkk/ros_itmo:base
